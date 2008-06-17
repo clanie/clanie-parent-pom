@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>dk.cn-consult</groupId>
+	<groupId>dk.clanie</groupId>
 	<artifactId>cn-consult-parent-pom</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 	<name>CN Consult Parent POM</name>
@@ -60,10 +60,10 @@
 		</developerConnection>
 		-->
 		<connection>
-			scm:git:http://svn.cn-consult.dk:7000/svn/cn-consult-parent-pom/trunk
+			scm:git:
 		</connection>
 		<developerConnection>
-			scm:git:http://svn.cn-consult.dk:7000/svn/cn-consult-parent-pom/trunk
+			scm:git:
 		</developerConnection>
 	</scm>
 
@@ -201,6 +201,12 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>1.5.2</version>
+			</dependency>
+
+			<dependency>
 				<groupId>commons-lang</groupId>
 				<artifactId>commons-lang</artifactId>
 				<version>2.2</version>
@@ -213,9 +219,15 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.5.2</version>
+			</dependency>
+
+			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
-				<version>0.9.8</version>
+				<version>0.9.9</version>
 			</dependency>
 
 			<dependency>
