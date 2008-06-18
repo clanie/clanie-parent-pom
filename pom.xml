@@ -201,6 +201,12 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>dk.clanie</groupId>
+				<artifactId>clanie-core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
 				<groupId>joda-time</groupId>
 				<artifactId>joda-time</artifactId>
 				<version>1.5.2</version>
