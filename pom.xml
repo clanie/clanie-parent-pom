@@ -208,12 +208,6 @@
 
 			<dependency>
 				<groupId>dk.clanie</groupId>
-				<artifactId>clanie-util</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-
-			<dependency>
-				<groupId>dk.clanie</groupId>
 				<artifactId>money</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
