@@ -67,8 +67,8 @@
 			scm:git:
 		</developerConnection>
 		 -->
-		<connection>scm:git:git://git.cn-consult.dk/libs/clanie-parent-pom.git</connection>
-		<url>scm:git:http://git.cn-consult.dk/libs/clanie-parent-pom.git</url>
+		<connection>scm:git: ssh://git/var/cache/git/libs/clanie-parent-pom</connection>
+		<url>scm:git:http://git.cn-consult.dk/libs/clanie-parent-pom</url>
 	</scm>
 
 	<distributionManagement>
