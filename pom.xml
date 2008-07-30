@@ -35,38 +35,17 @@
 		</developer>
 	</developers>
 
+	<!-- TODO: Currently don't have CI running. Install Hudson. -->
+	<!--
 	<ciManagement>
 		<system>Hudson</system>
-		<url>http://www.cn-consult.dk:8180/hudson/</url>
+		<url>http://hudson.cn-consult.dk/</url>
 	</ciManagement>
+	-->
 
 	<scm>
-		<!--
-			These really should be
-			scm:svn:http://svn.cn-consult.dk:7000/svn/${project.artifactId}/trunk
-			and then they should be inherited by child-POMs. That, however, dosn't
-			work because "release" will modify the POM and replace the property ref
-			to the artifactId with the actual artifactId.
-			Sucks! At least with Maven 2.0.7.
-		-->
-		<!--
-		<connection>
-			scm:svn:http://svn.cn-consult.dk:7000/svn/cn-consult-parent-pom/trunk
-		</connection>
-		<developerConnection>
-			scm:svn:http://svn.cn-consult.dk:7000/svn/cn-consult-parent-pom/trunk
-		</developerConnection>
-		-->
-		<!--
-		<connection>
-			scm:git:ssh:/
-		</connection>
-		<developerConnection>
-			scm:git:
-		</developerConnection>
-		 -->
 		<connection>scm:git:ssh://git/var/cache/git/libs/clanie-parent-pom</connection>
-		<url>scm:git:http://git.cn-consult.dk/libs/clanie-parent-pom</url>
+		<url>http://git.cn-consult.dk/?p=libs/clanie-parent-pom/.git</url>
 	</scm>
 
 	<distributionManagement>
