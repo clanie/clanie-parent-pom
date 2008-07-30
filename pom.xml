@@ -59,12 +59,16 @@
 			scm:svn:http://svn.cn-consult.dk:7000/svn/cn-consult-parent-pom/trunk
 		</developerConnection>
 		-->
+		<!--
 		<connection>
-			scm:git:
+			scm:git:ssh:/
 		</connection>
 		<developerConnection>
 			scm:git:
 		</developerConnection>
+		 -->
+		<connection>scm:git:git://git.cn-consult.dk/libs/clanie-parent-pom.git</connection>
+		<url>scm:git:http://git.cn-consult.dk/libs/clanie-parent-pom.git</url>
 	</scm>
 
 	<distributionManagement>
@@ -109,8 +113,16 @@
 				<updatePolicy>daily</updatePolicy>
 			</releases>
 		</repository>
+			<!--
+				TODO:
+				Only use scm provider snapshot from here for git support until scm-1.1
+				is released.
+			-->
+		<repository>
+			<id>don-asf-repository</id>
+			<url>http://people.apache.org/~mrdon/repository/</url>
+		</repository>
 	</repositories>
-
 	<build>
 		<extensions>
 			<extension>
@@ -129,6 +141,32 @@
 					<source>6</source>
 					<target>6</target>
 				</configuration>
+			</plugin>
+			<!--
+				TODO: Only use scm provider snapshot from here for git support until
+				scm-1.1 is released.
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.1-db-1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.1-db-1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
