@@ -44,8 +44,8 @@
 	-->
 
 	<scm>
-		<connection>scm:git:ssh://git/var/cache/git/libs/clanie-parent-pom</connection>
-		<url>http://git.cn-consult.dk/?p=libs/clanie-parent-pom/.git</url>
+		<connection>scm:git:ssh://git/var/cache/git/libs/clanie-parent-pom.git</connection>
+		<url>http://git.cn-consult.dk/?p=libs/clanie-parent-pom.git</url>
 	</scm>
 
 	<distributionManagement>
