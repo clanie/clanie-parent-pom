@@ -220,6 +220,12 @@
 			<dependency>
 				<groupId>dk.clanie</groupId>
 				<artifactId>clanie-core</artifactId>
+				<version>0.0.2-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>dk.clanie</groupId>
+				<artifactId>clanie-persistence</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
@@ -331,6 +337,12 @@
 			</dependency>
 
 			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.1.103</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.hamcrest</groupId>
 				<artifactId>hamcrest-all</artifactId>
 				<version>1.1</version>
@@ -339,7 +351,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.4</version>
+				<version>4.5</version>
 			</dependency>
 
 			<dependency>
