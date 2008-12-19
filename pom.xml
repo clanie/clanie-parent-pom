@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dk.clanie</groupId>
@@ -37,10 +38,8 @@
 
 	<!-- TODO: Currently don't have CI running. Install Hudson. -->
 	<!--
-	<ciManagement>
-		<system>Hudson</system>
-		<url>http://hudson.cn-consult.dk/</url>
-	</ciManagement>
+		<ciManagement> <system>Hudson</system>
+		<url>http://hudson.cn-consult.dk/</url> </ciManagement>
 	-->
 
 	<scm>
@@ -98,11 +97,11 @@
 				<enabled>true</enabled>
 				<updatePolicy>daily</updatePolicy>
 			</releases>
-		</repository>			<!--
-				TODO:
-				Only use scm provider snapshot from here for git support until scm-1.1
-				is released.
-			-->
+		</repository>
+		<!--
+			TODO: Only use scm provider snapshot from here for git support until
+			scm-1.1 is released.
+		-->
 		<repository>
 			<id>don-asf-repository</id>
 			<url>http://people.apache.org/~mrdon/repository/</url>
@@ -178,11 +177,10 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jdepend-maven-plugin</artifactId>
 			</plugin>
-			<!-- Changelog dosn't currently (2008-07-30) work with Git
-			<plugin>
+			<!--
+				Changelog dosn't currently (2008-07-30) work with Git <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changelog-plugin</artifactId>
-			</plugin>
+				<artifactId>maven-changelog-plugin</artifactId> </plugin>
 			-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -210,17 +208,15 @@
 			</plugin>
 
 			<!--
-				<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>clirr-maven-plugin</artifactId>
-				</plugin>
+				<plugin> <groupId>org.codehaus.mojo</groupId>
+				<artifactId>clirr-maven-plugin</artifactId> </plugin>
 			-->
 		</plugins>
 	</reporting>
 
 	<!--
-		JUnit > 4.4 can't be used with Spring 2.5.x. When switching
-		to Spring 3.0 also switch to newest JUnit further down.
+		JUnit > 4.4 can't be used with Spring 2.5.x. When switching to Spring
+		3.0 also switch to newest JUnit further down.
 	-->
 	<properties>
 		<version.spring>2.5.6</version.spring>
@@ -327,6 +323,11 @@
 				<artifactId>commons-pool</artifactId>
 				<version>1.3</version>
 			</dependency>
+			<dependency> <!-- Requered for proxying classes -->
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>2.2</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -348,21 +349,19 @@
 			</dependency>
 
 			<!--
-				Javassist is required by Hibernate, but not automatically
-				included (maby because it should be possible to use CGLib instead).
+				Javassist is required by Hibernate, but not automatically included
+				(maby because it should be possible to use CGLib instead).
 			-->
-    		<dependency>
-        		<groupId>javassist</groupId>
-        		<artifactId>javassist</artifactId>
-        		<version>3.4.GA</version>
-    		</dependency>
-<!--
 			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-commons-annotations</artifactId>
-				<version>3.3.0.ga</version>
+				<groupId>javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>3.4.GA</version>
 			</dependency>
--->
+			<!--
+				<dependency> <groupId>org.hibernate</groupId>
+				<artifactId>hibernate-commons-annotations</artifactId>
+				<version>3.3.0.ga</version> </dependency>
+			-->
 
 			<dependency>
 				<groupId>postgresql</groupId>
@@ -383,8 +382,8 @@
 			</dependency>
 
 			<!--
-				Junit 4.5 is not compatible with Spring 2.5.x, so
-				stick with 4.4 until switching to Spring 3.0.
+				Junit 4.5 is not compatible with Spring 2.5.x, so stick with 4.4
+				until switching to Spring 3.0.
 			-->
 			<dependency>
 				<groupId>junit</groupId>
