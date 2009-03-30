@@ -105,14 +105,6 @@
 			<url>http://people.apache.org/~mrdon/repository/</url>
 		</repository>
 		-->
-		<repository>
-			<id>restlet</id>
-			<name>Restlet</name>
-			<url>http://repository.sonatype.org/content/repositories/restlet/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
 
 	<build>
