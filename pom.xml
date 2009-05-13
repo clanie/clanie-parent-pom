@@ -105,6 +105,11 @@
 			<url>http://people.apache.org/~mrdon/repository/</url>
 		</repository>
 		-->
+		<repository>
+			<id>org.springsource.maven.snapshot</id>
+			<name>SpringSource Maven Central-compatible Snapshot Repository</name>
+			<url>http://maven.springframework.org/snapshot</url>
+		</repository>	
 	</repositories>
 
 	<build>
@@ -214,12 +219,8 @@
 		</plugins>
 	</reporting>
 
-	<!--
-		JUnit > 4.4 can't be used with Spring 2.5.x. When switching to Spring
-		3.0 also switch to newest JUnit further down.
-	-->
 	<properties>
-		<version.spring>2.5.6</version.spring>
+		<version.spring>3.0.0.BUILD-SNAPSHOT</version.spring>
 	</properties>
 
 	<dependencyManagement>
@@ -310,14 +311,26 @@
 
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring</artifactId>
+				<artifactId>spring-core</artifactId>
 				<version>${version.spring}</version>
+				<!--
 				<exclusions>
 					<exclusion>
 						<groupId>commons-logging</groupId>
 						<artifactId>commons-logging</artifactId>
 					</exclusion>
 				</exclusions>
+				-->
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${version.spring}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${version.spring}</version>
 			</dependency>
 			<!-- Optional spring deps. -->
 			<dependency>
@@ -387,14 +400,10 @@
 				<version>1.1.103</version>
 			</dependency>
 
-			<!--
-				Junit 4.5 is not compatible with Spring 2.5.x, so stick with 4.4
-				until switching to Spring 3.0.
-			-->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.4</version>
+				<version>4.5</version>
 			</dependency>
 
 			<dependency>
