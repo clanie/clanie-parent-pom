@@ -99,13 +99,6 @@
 			<url>http://people.apache.org/~mrdon/repository/</url>
 		</repository>
 		-->
-		<repository>
-			<id>org.springsource.maven.snapshot</id>
-			<name>SpringSource Maven Central-compatible Snapshot Repository</name>
-			<url>http://maven.springframework.org/snapshot</url>
-			<releases><enabled>true</enabled></releases>
-			<snapshots><enabled>true</enabled></snapshots>
-		</repository>	
 	</repositories>
 
 	<build>
@@ -214,7 +207,7 @@
 	</reporting>
 
 	<properties>
-		<version.spring>3.0.0.BUILD-SNAPSHOT</version.spring>
+		<version.spring>3.0.2.RELEASE</version.spring>
 	</properties>
 
 	<dependencyManagement>
