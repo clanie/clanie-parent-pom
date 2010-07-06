@@ -66,6 +66,11 @@
 		</site>
 	</distributionManagement>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<version.spring>3.0.2.RELEASE</version.spring>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>clanie.3rd-party</id>
@@ -206,9 +211,6 @@
 		</plugins>
 	</reporting>
 
-	<properties>
-		<version.spring>3.0.2.RELEASE</version.spring>
-	</properties>
 
 	<dependencyManagement>
 		<dependencies>
