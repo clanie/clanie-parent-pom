@@ -91,12 +91,22 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>JBoss Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+
+		</repository>
 	</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<version.spring>3.0.5.RELEASE</version.spring>
+		<version.hibernate>3.5.6-Final</version.hibernate>
 		<version.slf4j>1.6.1</version.slf4j>
+		<version.spring>3.0.5.RELEASE</version.spring>
 	</properties>
 
 	<build>
@@ -232,11 +242,11 @@
 			</dependency>
 
 			<dependency>
-  				<groupId>args4j</groupId>
-  				<artifactId>args4j</artifactId>
-  				<version>2.0.16</version>
+				<groupId>args4j</groupId>
+				<artifactId>args4j</artifactId>
+				<version>2.0.16</version>
 			</dependency>
-	
+
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjrt</artifactId>
@@ -371,13 +381,19 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
-				<version>3.5.6-Final</version>
+				<version>${version.hibernate}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-annotations</artifactId>
-				<version>3.5.6-Final</version>
+				<version>${version.hibernate}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.0-api</artifactId>
+				<version>1.0.0.Final</version>
 			</dependency>
 
 			<!--
