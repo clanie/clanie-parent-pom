@@ -396,6 +396,12 @@
 				<version>1.0.0.Final</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>javax.persistence</artifactId>
+				<version>2.0.0</version>
+			</dependency>
+
 			<!--
 				Javassist is required by Hibernate, but not automatically included
 				(maby because it should be possible to use CGLib instead).
