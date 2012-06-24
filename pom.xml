@@ -108,9 +108,9 @@
 				<configuration>
 					<verbose>true</verbose>
 					<fork>true</fork>
-					<compilerVersion>7.0</compilerVersion>
-					<source>7</source>
-					<target>7</target>
+					<compilerVersion>6.0</compilerVersion>
+					<source>6</source>
+					<target>6</target>
 				</configuration>
 			</plugin>
 			<plugin>
