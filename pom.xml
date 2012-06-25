@@ -25,12 +25,8 @@
 		</license>
 	</licenses>
 
-<!--
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://hudson.cn-consult.dk</url>
-	</ciManagement>
--->
+	<!-- <ciManagement> <system>Jenkins</system> <url>http://hudson.cn-consult.dk</url> 
+		</ciManagement> -->
 
 	<developers>
 		<developer>
@@ -46,28 +42,14 @@
 		<url>https://github.com/clanie/clanie-parent-pom</url>
 	</scm>
 
-<!--
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>CN Consult Release Repository</name>
-			<url>http://nexus.cn-consult.dk/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>CN Consult Snapshot Repository</name>
-			<url>http://nexus.cn-consult.dk/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<site>
-			<id>sites</id>
-			<name>CN Consult Project Websites</name>
-			<url>
-				scp://mvn.cn-consult.dk/var/lib/mvn/release-site/${project.artifactId}/${project.version}
-			</url>
-		</site>
-	</distributionManagement>
-  -->
-    
+	<!-- <distributionManagement> <repository> <id>releases</id> <name>CN Consult 
+		Release Repository</name> <url>http://nexus.cn-consult.dk/content/repositories/releases/</url> 
+		</repository> <snapshotRepository> <id>snapshots</id> <name>CN Consult Snapshot 
+		Repository</name> <url>http://nexus.cn-consult.dk/content/repositories/snapshots/</url> 
+		</snapshotRepository> <site> <id>sites</id> <name>CN Consult Project Websites</name> 
+		<url> scp://mvn.cn-consult.dk/var/lib/mvn/release-site/${project.artifactId}/${project.version} 
+		</url> </site> </distributionManagement> -->
+
 	<repositories>
 		<!-- <repository> <id>clanie.3rd-party</id> <name>CN Consult 3rd Party 
 			Repository</name> <url>http://mvn.cn-consult.dk/repositories/thirdparty/</url> 
@@ -139,6 +121,37 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Sign only if doing a release build. -->
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<reporting>
 		<plugins>
@@ -361,12 +374,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-annotations</artifactId>
-				<version>${version.hibernate}</version>
-			</dependency>
-
-			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
 				<artifactId>hibernate-jpa-2.0-api</artifactId>
 				<version>1.0.1.Final</version>
@@ -378,21 +385,16 @@
 				<version>2.0.0</version>
 			</dependency>
 
-			<!--
-				Javassist is required by Hibernate, but not automatically included
-				(maby because it should be possible to use CGLib instead).
-				Still true? It was for hibernate 3.something but I don't know if it still is true.
-			-->
+			<!-- Javassist is required by Hibernate, but not automatically included 
+				(maby because it should be possible to use CGLib instead). Still true? It 
+				was for hibernate 3.something but I don't know if it still is true. -->
 			<dependency>
 				<groupId>javassist</groupId>
 				<artifactId>javassist</artifactId>
 				<version>3.16.1.GA</version>
 			</dependency>
-			<!--
-				<dependency> <groupId>org.hibernate</groupId>
-				<artifactId>hibernate-commons-annotations</artifactId>
-				<version>3.3.0.ga</version> </dependency>
-			-->
+			<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-commons-annotations</artifactId> 
+				<version>3.3.0.ga</version> </dependency> -->
 
 			<dependency>
 				<groupId>postgresql</groupId>
