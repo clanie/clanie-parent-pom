@@ -51,11 +51,6 @@
 		</url> </site> </distributionManagement> -->
 
 	<repositories>
-		<!-- <repository> <id>clanie.3rd-party</id> <name>CN Consult 3rd Party 
-			Repository</name> <url>http://mvn.cn-consult.dk/repositories/thirdparty/</url> 
-			<releases> <enabled>true</enabled> </releases> </repository> <repository> 
-			<id>releases</id> <name>CN Consult Release Repository</name> <url>http://mvn.cn-consult.dk/repositories/releases/</url> 
-			<releases> <enabled>true</enabled> </releases> </repository> -->
 		<repository>
 			<id>spring-roo-repository</id>
 			<name>Spring Roo Repository</name>
@@ -76,6 +71,10 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
+		</repository>
+		<repository>
+			<id>EclipseLink</id>
+			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
 		</repository>
 		<repository>
 			<id>org.springframework.maven.release</id>
@@ -114,7 +113,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.aspectj>1.6.12</version.aspectj>
-		<version.hibernate>4.1.4.Final</version.hibernate>
+		<version.eclipselink>2.4.0</version.eclipselink>
 		<version.hibernate-validator>4.3.0.Final</version.hibernate-validator>
 		<version.slf4j>1.6.6</version.slf4j>
 		<version.spring>3.1.1.RELEASE</version.spring>
@@ -134,8 +133,8 @@
 					<verbose>true</verbose>
 					<fork>true</fork>
 					<compilerVersion>6.0</compilerVersion>
-					<source>6</source>
-					<target>6</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -462,7 +461,7 @@
 
 			<dependency>
 				<groupId>org.springframework</groupId>
-				<artifactId>spring-hibernate3</artifactId>
+				<artifactId>spring-jpa</artifactId>
 				<version>${version.spring}</version>
 			</dependency>
 
@@ -488,15 +487,19 @@
 
 			<!-- ORM and Database -->
 			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${version.hibernate}</version>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>eclipselink</artifactId>
+				<version>${version.eclipselink}</version>
 			</dependency>
-
 			<dependency>
-				<groupId>org.hibernate.javax.persistence</groupId>
-				<artifactId>hibernate-jpa-2.0-api</artifactId>
-				<version>1.0.1.Final</version>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>org.eclipse.persistence.core</artifactId>
+				<version>${version.eclipselink}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>org.eclipse.persistence.jpa</artifactId>
+				<version>${version.eclipselink}</version>
 			</dependency>
 
 			<dependency>
@@ -508,12 +511,12 @@
 			<!-- Javassist is required by Hibernate, but not automatically included 
 				(maby because it should be possible to use CGLib instead). Still true? It 
 				was for hibernate 3.something but I don't know if it still is true. -->
-			<dependency>
+<!-- 			<dependency>
 				<groupId>javassist</groupId>
 				<artifactId>javassist</artifactId>
 				<version>3.16.1.GA</version>
 			</dependency>
-			<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-commons-annotations</artifactId> 
+ -->			<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-commons-annotations</artifactId> 
 				<version>3.3.0.ga</version> </dependency> -->
 
 			<dependency>
