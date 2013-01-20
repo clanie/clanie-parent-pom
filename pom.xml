@@ -35,7 +35,7 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:ssh:git@github.com:clanie/clanie-parent-pom.git</connection>
+		<connection>scm:git:ssh://git@github.com/clanie/clanie-parent-pom.git</connection>
 		<url>https://github.com/clanie/clanie-parent-pom</url>
 	</scm>
 
