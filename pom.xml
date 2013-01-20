@@ -3,7 +3,7 @@
 
 	<groupId>dk.clanie</groupId>
 	<artifactId>clanie-parent-pom</artifactId>
-	<version>1.7.0-RC5-SNAPSHOT</version>
+	<version>1.7.0</version>
 
 	<packaging>pom</packaging>
 	<name>CN Consult Parent POM</name>
@@ -36,7 +36,7 @@
 	<scm>
 		<connection>scm:git:ssh://git@github.com/clanie/clanie-parent-pom.git</connection>
 		<url>https://github.com/clanie/clanie-parent-pom</url>
-		<tag>HEAD</tag>
+		<tag>clanie-parent-pom-1.7.0</tag>
 	</scm>
 
 	<distributionManagement>
