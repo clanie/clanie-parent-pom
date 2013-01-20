@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dk.clanie</groupId>
@@ -36,8 +37,8 @@
 	<scm>
 		<connection>scm:git:ssh://git@github.com/clanie/clanie-parent-pom.git</connection>
 		<url>https://github.com/clanie/clanie-parent-pom</url>
-	  <tag>HEAD</tag>
-  </scm>
+		<tag>HEAD</tag>
+	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>
@@ -90,6 +91,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.java>1.7</version.java>
 		<version.aspectj>1.7.1</version.aspectj>
+		<version.maven-scmp-provider-gitexe>1.8.1</version.maven-scmp-provider-gitexe>
 	</properties>
 
 
@@ -114,7 +116,7 @@
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
 						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>1.7</version>
+						<version>${version.maven-scmp-provider-gitexe}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -126,16 +128,22 @@
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
 						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>1.8.1</version>
+						<version>${version.maven-scmp-provider-gitexe}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
 			</plugin>
 		</plugins>
 	</build>
 
 
-	<!-- Sign only if doing a release build. -->
 	<profiles>
+
+		<!-- Sign only if doing a release build. -->
 		<profile>
 			<id>release-sign-artifacts</id>
 			<activation>
@@ -163,6 +171,33 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9</version>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 	</profiles>
 
 
