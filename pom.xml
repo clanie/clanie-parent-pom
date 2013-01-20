@@ -4,11 +4,11 @@
 
 	<groupId>dk.clanie</groupId>
 	<artifactId>clanie-parent-pom</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.7.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 	<name>CN Consult Parent POM</name>
-	<description>Parent POM with repository locations etc.</description>
+	<description>Parent POM with common settings for Java 7 projects.</description>
 	<organization>
 		<name>CN Consult</name>
 		<url>http://www.cn-consult.dk</url>
@@ -25,9 +25,6 @@
 		</license>
 	</licenses>
 
-	<!-- <ciManagement> <system>Jenkins</system> <url>http://hudson.cn-consult.dk</url> 
-		</ciManagement> -->
-
 	<developers>
 		<developer>
 			<name>Claus Nielsen</name>
@@ -42,19 +39,17 @@
 		<url>https://github.com/clanie/clanie-parent-pom</url>
 	</scm>
 
-	<!-- <distributionManagement> <repository> <id>releases</id> <name>CN Consult 
-		Release Repository</name> <url>http://nexus.cn-consult.dk/content/repositories/releases/</url> 
-		</repository> <snapshotRepository> <id>snapshots</id> <name>CN Consult Snapshot 
-		Repository</name> <url>http://nexus.cn-consult.dk/content/repositories/snapshots/</url> 
-		</snapshotRepository> <site> <id>sites</id> <name>CN Consult Project Websites</name> 
-		<url> scp://mvn.cn-consult.dk/var/lib/mvn/release-site/${project.artifactId}/${project.version} 
-		</url> </site> </distributionManagement> -->
-
 	<repositories>
 		<repository>
 			<id>spring-roo-repository</id>
 			<name>Spring Roo Repository</name>
 			<url>http://spring-roo-repository.springsource.org/release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
@@ -63,18 +58,30 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>jboss</id>
 			<name>JBoss Repository</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>EclipseLink</id>
 			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 		<repository>
 			<id>org.springframework.maven.release</id>
@@ -87,53 +94,25 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<!-- For testing against latest Spring snapshots -->
-		<repository>
-			<id>org.springframework.maven.snapshot</id>
-			<name>Spring Maven Snapshot Repository</name>
-			<url>http://repo.springsource.org/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<!-- For developing against latest Spring milestones -->
-		<repository>
-			<id>org.springframework.maven.milestone</id>
-			<name>Spring Maven Milestone Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<version.java>1.7</version.java>
 		<version.aspectj>1.7.1</version.aspectj>
-		<version.eclipselink>2.4.1</version.eclipselink>
-		<version.hibernate-validator>4.3.0.Final</version.hibernate-validator>
-		<version.slf4j>1.6.6</version.slf4j>
-		<version.spring>3.1.1.RELEASE</version.spring>
-		<version.spring-social>1.1.0.BUILD-SNAPSHOT</version.spring-social>
-		<version.spring-social.facebook>1.1.0.BUILD-SNAPSHOT</version.spring-social.facebook>
-		<version.spring-social.google>0.0.1-SNAPSHOT</version.spring-social.google>
-		<version.spring-social.twitter>1.1.0.BUILD-SNAPSHOT</version.spring-social.twitter>
-		<version.spring-security>3.1.0.RELEASE</version.spring-security>
 	</properties>
+
 
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>3.0</version>
 				<configuration>
 					<verbose>true</verbose>
 					<fork>true</fork>
-					<compilerVersion>6.0</compilerVersion>
+					<compilerVersion>${version.java}</compilerVersion>
 					<source>${version.java}</source>
 					<target>${version.java}</target>
 				</configuration>
@@ -141,7 +120,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>2.4</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
@@ -153,12 +132,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-scm-plugin</artifactId>
-				<version>1.7</version>
+				<version>1.8.1</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.apache.maven.scm</groupId>
 						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>1.7</version>
+						<version>1.8.1</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -201,7 +180,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.12</version>
+				<version>2.13</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -211,12 +190,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.8.1</version>
+				<version>2.9</version>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>2.5.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -236,7 +215,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>2.5.2</version>
 				<configuration>
 					<threshold>Normal</threshold>
 					<effort>Default</effort>
@@ -254,9 +233,11 @@
 					<relaxed>true</relaxed>
 				</configuration>
 			</plugin>
-
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>clirr-maven-plugin</artifactId> 
-				</plugin> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>clirr-maven-plugin</artifactId>
+				<version>2.5</version> 
+			</plugin>
 		</plugins>
 	</reporting>
 
