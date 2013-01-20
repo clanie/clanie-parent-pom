@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>dk.clanie</groupId>
 	<artifactId>clanie-parent-pom</artifactId>
-	<version>1.7.0-RC2-SNAPSHOT</version>
+	<version>1.7.0-RC2</version>
 
 	<packaging>pom</packaging>
 	<name>CN Consult Parent POM</name>
@@ -37,7 +36,8 @@
 	<scm>
 		<connection>scm:git:ssh://git@github.com/clanie/clanie-parent-pom.git</connection>
 		<url>https://github.com/clanie/clanie-parent-pom</url>
-	</scm>
+	  <tag>clanie-parent-pom-1.7.0-RC2</tag>
+  </scm>
 
 	<distributionManagement>
 		<snapshotRepository>
