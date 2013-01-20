@@ -63,30 +63,8 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>jboss</id>
-			<name>JBoss Repository</name>
-			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>EclipseLink</id>
 			<url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>org.springframework.maven.release</id>
-			<name>Spring Maven Release Repository</name>
-			<url>http://repo.springsource.org/release</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
