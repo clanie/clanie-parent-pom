@@ -184,6 +184,11 @@
 				<artifactId>clanie-test</artifactId>
 				<version>2.0.0-SNAPSHOT</version>
 			</dependency>
+            <dependency>
+                <groupId>dk.clanie</groupId>
+                <artifactId>clanie-web</artifactId>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
 
 			<!-- Miscellaneous-->
 			<dependency>
