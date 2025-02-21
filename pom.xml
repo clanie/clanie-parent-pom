@@ -1,189 +1,189 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.3</version>
+    </parent>
 
-	<groupId>dk.clanie</groupId>
-	<artifactId>clanie-parent-pom</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+    <groupId>dk.clanie</groupId>
+    <artifactId>clanie-parent-pom</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
 
-	<packaging>pom</packaging>
-	<name>Clanie Parent POM</name>
-	<description>Parent POM with repository locations and dependency management
-		etc.</description>
-	<organization>
-		<name>Claus Nielsen</name>
-		<url>https://github.com/clanie</url>
-	</organization>
-	<inceptionYear>2007</inceptionYear>
+    <packaging>pom</packaging>
+    <name>Clanie Parent POM</name>
+    <description>Parent POM with repository locations and dependency management
+        etc.</description>
+    <organization>
+        <name>Claus Nielsen</name>
+        <url>https://github.com/clanie</url>
+    </organization>
+    <inceptionYear>2007</inceptionYear>
 
-	<url>https://github.com/clanie/clanie-parent-pom</url>
+    <url>https://github.com/clanie/clanie-parent-pom</url>
 
-	<licenses>
-		<license>
-			<name>GNU GENERAL PUBLIC LICENSE</name>
-			<url>http://www.gnu.org/licenses/gpl.html</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE</name>
+            <url>http://www.gnu.org/licenses/gpl.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-	<developers>
-		<developer>
-			<name>Claus Nielsen</name>
-			<email>clausn999@gmail.com</email>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <name>Claus Nielsen</name>
+            <email>clausn999@gmail.com</email>
+        </developer>
+    </developers>
 
-	<scm>
-		<connection>scm:git:ssh:git@github.com:clanie/clanie-parent-pom.git</connection>
-		<url>https://github.com/clanie/clanie-parent-pom</url>
-	</scm>
+    <scm>
+        <connection>scm:git:ssh:git@github.com:clanie/clanie-parent-pom.git</connection>
+        <url>https://github.com/clanie/clanie-parent-pom</url>
+    </scm>
 
-	<repositories>
-	</repositories>
+    <repositories>
+    </repositories>
 
-	<properties>
-		<java.version>23</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+    <properties>
+        <java.version>23</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<release>${java.version}</release>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<parameters>true</parameters>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>${lombok.version}</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>3.1.1</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>2.1.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-scm-plugin</artifactId>
-				<version>2.1.0</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.scm</groupId>
-						<artifactId>maven-scm-provider-gitexe</artifactId>
-						<version>2.1.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-
-	<!-- Sign only if doing a release build. -->
-	<profiles>
-		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>3.2.7</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>3.5.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.6.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.11.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jdepend-maven-plugin</artifactId>
-				<version>2.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-changelog-plugin</artifactId>
-				<version>2.3</version>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>taglist-maven-plugin</artifactId>
-				<version>3.2.1</version>
-			</plugin>
-		</plugins>
-	</reporting>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>${java.version}</release>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <parameters>true</parameters>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.1.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>2.1.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>2.1.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>2.1.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
-	<dependencyManagement>
-		<dependencies>
+    <!-- Sign only if doing a release build. -->
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.7</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
-			<!-- Clanie -->
-			<dependency>
-				<groupId>dk.clanie</groupId>
-				<artifactId>clanie-core</artifactId>
-				<version>2.0.0-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>dk.clanie</groupId>
-				<artifactId>clanie-mongo</artifactId>
-				<version>2.0.0-SNAPSHOT</version>
-			</dependency>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>3.6.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+                <version>2.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-changelog-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>taglist-maven-plugin</artifactId>
+                <version>3.2.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Clanie -->
+            <dependency>
+                <groupId>dk.clanie</groupId>
+                <artifactId>clanie-core</artifactId>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>dk.clanie</groupId>
+                <artifactId>clanie-mongo</artifactId>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>dk.clanie</groupId>
                 <artifactId>clanie-test</artifactId>
@@ -195,40 +195,46 @@
                 <version>2.0.0-SNAPSHOT</version>
             </dependency>
 
-			<!-- Miscellaneous-->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>3.17.0</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-codec</groupId>
-				<artifactId>commons-codec</artifactId>
-				<version>1.17.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.java-json-tools</groupId>
-				<artifactId>json-patch</artifactId>
-				<version>1.13</version>
-			</dependency>
-			
-		</dependencies>
-	</dependencyManagement>
+            <!-- Miscellaneous-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.17.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.18.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>33.4.0-jre</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.java-json-tools</groupId>
+                <artifactId>json-patch</artifactId>
+                <version>1.13</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
 
-	<dependencies />
+    <dependencies />
 
 
-	<distributionManagement>
-		<repository>
-			<id>github-releases</id>
-			<url>https://maven.pkg.github.com/clanie/m2-repo</url>
-		</repository>
-		<snapshotRepository>
-			<id>github-snapshots</id>
-			<url>https://maven.pkg.github.com/clanie/m2-repo</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>github-releases</id>
+            <url>https://maven.pkg.github.com/clanie/m2-repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>github-snapshots</id>
+            <url>https://maven.pkg.github.com/clanie/m2-repo</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 
 </project>
