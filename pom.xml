@@ -61,6 +61,9 @@
                 <configuration>
                     <release>${java.version}</release>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArgs>
+                        --enable-preview
+                    </compilerArgs>
                     <parameters>true</parameters>
                     <annotationProcessorPaths>
                         <path>
