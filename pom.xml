@@ -224,6 +224,11 @@
                 <artifactId>clanie-saxo-client</artifactId>
                 <version>2.0.1-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>dk.clanie</groupId>
+                <artifactId>clanie-bitstamp-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
 
             <!-- Miscellaneous-->
             <dependency>
