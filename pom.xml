@@ -216,6 +216,11 @@
             </dependency>
             <dependency>
                 <groupId>dk.clanie</groupId>
+                <artifactId>clanie-brevo-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>dk.clanie</groupId>
                 <artifactId>clanie-eodhd-client</artifactId>
                 <version>2.0.1-SNAPSHOT</version>
             </dependency>
