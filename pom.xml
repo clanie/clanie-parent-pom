@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.6</version>
+        <version>4.1.1</version>
         <relativePath/> <!-- Disables ../pom.xml lookup -->
     </parent>
 
@@ -52,6 +52,12 @@
     <properties>
         <java.version>25</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+            Spring Data 2026.0.1 (managed by Boot 4.1.1) regresses auditing startup
+            for Mongo entities with Map properties. Keep Boot on 4.1.1 while using
+            a known-good 2025.1 service release until spring-data-commons#3515 is fixed.
+        -->
+        <spring-data-bom.version>2025.1.6</spring-data-bom.version>
     </properties>
 
     <build>
